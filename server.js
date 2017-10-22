@@ -29,6 +29,8 @@ app.use('/user', userRouter);
 
 app.use(express.static(__dirname + '/public'));
 
-app.listen(config.port, () => {
-	console.log("Your work is online at " + config.port);
+const port = process.env.PORT || config.port;
+
+app.listen(port, () => {
+	console.log("Your work is online at " + port);
 });
