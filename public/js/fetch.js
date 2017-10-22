@@ -42,7 +42,7 @@ function requestNextPage(){
 			let gridPictureText = document.createElement('div');
 			gridPictureText.className = 'portfolio-picture-text';
 			let gridText = document.createElement('p');
-			gridText.append("some text");
+			gridText.append(data[i].name);
 			gridPictureText.appendChild(gridText);
 			
 			gridItem.appendChild(gridPictureWrapper);
