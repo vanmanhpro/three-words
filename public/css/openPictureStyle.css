@@ -1,0 +1,101 @@
+.screen-dim{
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba( 0, 0, 0, 0.95);
+	z-index: 2;
+}
+.opened-picture-wrapper{
+	display: flex;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate( -50%, -50%);
+}
+.instant-picture-wrapper{
+	position: relative;
+	width: 575px;
+	height: 550px;
+	padding: 3%;
+	background-color: #f9dbff;
+	box-shadow: 0px 4px 5px -4px rgba( 0, 0, 0,0.72);
+}
+.instant-picture{
+	width: 100%;
+}
+.instant-picture > img{
+	width: inherit;
+}
+.instant-picture-beautiful-text-wrapper{
+	display: block;
+	text-align: center;
+	font-family: 'Dancing Script', cursive;
+	font-size: 28px;
+	font-weight: bold;
+}
+.instant-picture-beautiful-text-wrapper span{
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: bold;
+}
+.comment-section{
+	position: absolute;
+	bottom: 4%;
+	right: 5%;
+}
+.activate-comment-notion{
+	position: relative;
+	width: 40px;
+	height: 40px;
+	font-size: 25px;
+	border: 2px solid #d727f9;
+	background-color: #df42ff;
+	color: rgba( 122, 0, 147, 0.9);
+	border-radius: 100%;
+	text-shadow: 0 1px 0 rgba(255,255,255,.7);
+	box-shadow: 2px 2px 7px rgba(0,0,0,.2);
+}
+.activate-comment-notion span{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate( -50%, -50%);
+}
+.available-comment-count{
+	position: absolute;
+	top: -7px;
+	left: -5px;
+	background-color: #ffffff;
+	font-weight: bold;
+}
+.input-3-words{
+	display: block;
+	position: absolute;
+	right: 20px;
+	bottom: 0;
+}
+.input-3-words input{
+	outline: none;
+	border: 1px solid red;
+	padding: 5px 15px;
+	border-top-left-radius: 100px;
+	border-bottom-left-radius: 100px;
+}
+.input-3-words input:focus{
+	border: 2px solid #ec93ff;
+	transition: all 0.2s ease-in-out;
+}
+
+.focused-left-content{
+	width: 300px;
+	height: 500px;
+	background-color: blue;
+	margin-left: 20px;
+	padding: 15px;
+}
+.owners-name{
+	font-weight: bold;
+}
