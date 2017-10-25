@@ -78,36 +78,7 @@ switchToCreateAccountByClick();
 switchToLogInByClick();
 turnOffLoginAndCreateAccountBoxByClick();
 
-let portfolios = document.getElementsByClassName('portfolios-grid-item');
-let openPictureDim = document.getElementById('open-picture-dim');
 
-function openPictureByClick(){
-	for(let i = 0, n = portfolios.length; i < n; i++){
-		portfolios[i].addEventListener('click', function(){
-			openPictureDim.style.display = "block";
-		})
-	}
-}
-function closePictureByClick(){
-	openPictureDim.addEventListener('click', function(){
-		openPictureDim.style.display = "none";
-	});
-}
-
-openPictureByClick();
-closePictureByClick();
-
-
-function suspendClickOpenPictureWrapper(){	
-	document.querySelector(".instant-picture-wrapper").addEventListener('click', function(event){
-		event.stopPropagation();
-	});
-	document.querySelector(".focused-left-content").addEventListener('click', function(event){
-		event.stopPropagation();
-	});
-}
-
-suspendClickOpenPictureWrapper();
 
 // function displayPublisherExplicitByHover(){
 // 	let publishInformation = document.getElementsByClassName('publish-information-wrapper');

@@ -56,9 +56,12 @@ function statusChangeCallback(response) {
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
+let currentUser;
+
   function testAPI() {
     FB.api('/me', function(userInfo) {
       console.log(userInfo);
-      $.post("/user/createAccount", userInfo);
+      currentUser = userInfo;
+      $.ajax({type:"post", url: "/user/createAccount", data: userInfo});
     });
   }

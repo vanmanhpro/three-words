@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const objectId = mongoose.Types.ObjectId();
 
 const userSchema = new Schema({
 	id:{
@@ -7,6 +8,10 @@ const userSchema = new Schema({
 		require: true
 	},
 	name:{
+		type: String,
+		require: true
+	},
+	smallURL:{
 		type: String,
 		require: true
 	},

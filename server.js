@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 
 const homeRouter = require('./modules/home');
 const userRouter = require('./modules/user');
+const imageRouter = require('./modules/image');
+
 const config = require('./config.json');
 
 const app = express();
@@ -26,6 +28,7 @@ mongoose.connect(config.connectionString, (err) => {
 
 app.use('/', homeRouter);
 app.use('/user', userRouter);
+app.use('/image', imageRouter)
 
 app.use(express.static(__dirname + '/public'));
 
