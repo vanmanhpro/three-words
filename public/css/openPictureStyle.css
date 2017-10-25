@@ -89,7 +89,7 @@
 	transition: all 0.2s ease-in-out;
 }
 
-.focused-left-content{
+.left-section-wrapper{
 	width: 300px;
 	height: 500px;
 	background-color: blue;

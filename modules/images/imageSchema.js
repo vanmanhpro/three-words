@@ -2,19 +2,19 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ImageSchema = new Schema({
-	ownerId:{
+	ownerId:{ //Id cua nguoi up anh
 		type: String,
 		require: true
 	},
-	url:{
+	url:{ 
 		type: String,
 		require: true
 	},
-	interest:{
+	interest:{ // so nguoi vao comment
 		type: Number,
 		require: true
 	},
-	voters:{
+	voters:{ // id nhung nguoi vao comment
 		type: [],
 		default: []
 	},

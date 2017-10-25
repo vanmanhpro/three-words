@@ -1,4 +1,4 @@
 {
-	"connectionString" : "mongodb://vanmanh:DayLaToi@ds159978.mlab.com:59978/three-words",
+	"connectionString" : "",
 	"port" : "8888"
 }

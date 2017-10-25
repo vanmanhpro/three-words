@@ -2,23 +2,23 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const wordSchema = new Schema({
-	content:{
+	content:{ // noi dung comment
 		type: String,
 		require: true
 	},
-	targetOwner:{
+	targetOwner:{ // nguoi dang anh
+		type: String,
+		require: true
+	}, 
+	targetPicture:{ // anh duoc comment
 		type: String,
 		require: true
 	},
-	targetPicture:{
-		type: String,
-		require: true
-	},
-	vote:{
+	vote:{ // so nguoi vote
 		type: Number,
 		default: 1
 	},
-	voters:{
+	voters:{ // id nguoi vote
 		type: [],
 		default: []
 	}
