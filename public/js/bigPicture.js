@@ -1,4 +1,4 @@
-wlet input3words = document.getElementById('input-3-words');
+let input3words = document.getElementById('input-3-words');
 let currentPicture;
 
 // Comment trigger
