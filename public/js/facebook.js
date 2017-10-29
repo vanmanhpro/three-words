@@ -23,13 +23,13 @@ function statusChangeCallback(response) {
 
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : '152642855344880',
+    appId      : '132560957403316',
     cookie     : true,  // enable cookies to allow the server to access 
                         // the session
     xfbml      : true,  // parse social plugins on this page
     version    : 'v2.10' // use graph api version 2.10
   });
-//aaaaa
+
   // Now that we've initialized the JavaScript SDK, we call 
   // FB.getLoginStatus().  This function gets the state of the
   // person visiting this page and can return one of three states to
@@ -62,6 +62,9 @@ let currentUser;
     FB.api('/me', function(userInfo) {
       console.log(userInfo);
       currentUser = userInfo;
-      $.ajax({type:"post", url: "/user/createAccount", data: userInfo});
+      $.ajax({type:"post", url: "/user/createAccount", data: userInfo})
+      .done((data) => {
+        currentUser = data;
+      })
     });
   }
