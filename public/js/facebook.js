@@ -56,12 +56,13 @@ window.fbAsyncInit = function () {
 }(document, 'script', 'facebook-jssdk'));
 
 let currentUser;
-
+let smallUrl;
 function testAPI() {
   FB.api('/me', function (userInfo) {
     // console.log(userInfo);
     currentUser = userInfo;
     // console.log(currentUser);
+    smallUrl = currentUser.smallUrl;
     document.getElementById("ava-tiny").src = `https://graph.facebook.com/${currentUser.id}/picture?width=15`;
     document.getElementById("headbar-name-user").textContent += `Hi, ${currentUser.name}`;
     document.getElementById("ava-tiny").style.display = "";
