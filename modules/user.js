@@ -18,7 +18,7 @@ Router.post('/createAccount', (req, res) => {
 			} else {
 				let newImage = {
 					ownerId: userInfo.id,
-					url: `https://graph.facebook.com/${userInfo.id}/picture?width=500`
+					url: `https://graph.facebook.com/${userInfo.id}/picture?width=300`
 				};
 				imageController.addImage(newImage)
 				.then( (imageId) => {
