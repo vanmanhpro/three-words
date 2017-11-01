@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const objectId = mongoose.Types.ObjectId();
 
 const userModel = require('./userSchema');
-const userLogModel = require('./userLogSchema');
+//const userLogModel = require('./userLogSchema');
 
 const checkExistAccount = (userInfo) => {
 	return new Promise( function( resolve, reject){
