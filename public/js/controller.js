@@ -67,10 +67,10 @@ function turnOffLoginAndCreateAccountBoxByClick(){
 	for(let i = 0, n = loginEscapeButtons.length; i < n; i++){
 		loginEscapeButtons[i].addEventListener('click', function(){
 			signInBox.style.display = "none";
-			createAccountBox.style.display = "none";
 		})
 	}
 }
+
 displayProfileSettingByClick();
 displaySearchByClick();
 openSignInByClick();
@@ -79,34 +79,3 @@ switchToLogInByClick();
 turnOffLoginAndCreateAccountBoxByClick();
 
 
-
-// function displayPublisherExplicitByHover(){
-// 	let publishInformation = document.getElementsByClassName('publish-information-wrapper');
-// 	console.log(publishInformation);
-// 	for( let i = 0, n = publishInformation.length; i < n; i++){
-// 		let publisherAvatar = publishInformation[i].getElementsByClassName('publisher-avatar')[0];
-// 		let publisherName = publishInformation[i].getElementsByClassName('publisher-name')[0];
-// 		publisherAvatar.addEventListener('mouseover', publisherExplicitDisplayOn, false);
-// 		publisherName.addEventListener('mouseover', publisherExplicitDisplayOn, false);
-		
-// 		function publisherExplicitDisplayOn(){
-// 			let publisherExplicit = publishInformation[i].getElementsByClassName('publisher-explicit-wrapper')[0];
-// 			$(publisherExplicit).css("display","flex");
-// 			publisherAvatar.addEventListener('mouseout', 
-// 				function(){
-// 					publisherName.addEventListener('mouseout', 
-// 						function(){
-// 							publisherExplicit.addEventListener('mouseout',
-// 								function(){
-// 									console.log("haha");
-// 									$(publisherExplicit).css("display","none");
-// 								},false);
-// 						}, false);
-// 				},false);
-// 		}
-// 		function publisherExplicitDisplayOff(){
-// 			let publisherExplicit = publishInformation[i].getElementsByClassName('publisher-explicit-wrapper')[0];
-// 			$(publisherExplicit).css("display","none");
-// 		}
-// 	}
-// }

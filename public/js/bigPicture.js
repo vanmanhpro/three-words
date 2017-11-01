@@ -1,6 +1,8 @@
 let input3words = document.getElementById('input-3-words');
 let currentPicture, currentLog;
 
+// $document.ready()
+
 // Comment trigger
 document.addEventListener('keydown', function(event){
 	// Press enter key while input is being focused to comment
