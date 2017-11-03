@@ -70,10 +70,8 @@ function openPictureByClick(portfolio, chosenUser){
 		document.getElementsByTagName('body')[0].style.overflow = "hidden";// prevent body scrolling when pop up
 
 		//append owner's information
-		console.log(chosenUser);
-		console.log(currentUser);
+
 		pictureOwnersName.innerHTML = chosenUser.name;
-		currentUserAvatar.src = currentUser.smallURL;
 
 		//append picture and comments
 		url = `/image/${chosenUser.currentImageId}`;
@@ -84,7 +82,6 @@ function openPictureByClick(portfolio, chosenUser){
 
 			document.getElementById('big-instant-picture-image').src = data.url;
 			//append Comments
-			console.log(currentPicture.words);
 
 			for(let i = 0, n = currentPicture.words.length; i < n; i++){
 				//create comment
