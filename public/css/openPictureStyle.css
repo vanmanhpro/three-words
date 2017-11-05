@@ -174,13 +174,10 @@
 .display-comments-wrapper{
 	height: 301px;	
 	padding: 5px 20px;
-<<<<<<< HEAD
 	color: rgba(0, 0, 0, 0.5);
 	overflow-y: scroll;
-=======
     color: rgba(0, 0, 0, 0.5);
     font-size: 1em;
->>>>>>> abd1999d588116e21879ca5be9a49c0683b459da
 }
 .comment{
 	display: flex;
@@ -217,9 +214,6 @@
 	justify-content: space-between;
 	padding: 5px 0px 10px 10px;
 }
-<<<<<<< HEAD
-=======
-
 
 @media screen and (max-width : 400px) and (min-width: 0px) {
 	.opened-picture-wrapper{
@@ -338,4 +332,3 @@
 		overflow-y: scroll;
 	}
 }
->>>>>>> abd1999d588116e21879ca5be9a49c0683b459da
