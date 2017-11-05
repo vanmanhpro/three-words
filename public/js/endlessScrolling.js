@@ -1,4 +1,4 @@
-let currentPage = 0;
+let currentPage = 0, skip = 0;
 let isLoading = false;
 
 $(window).on('scroll', onWindowScrolled);
@@ -12,22 +12,23 @@ var interval = setInterval(function(){
   }
 }, 200);
 
-requestNextPage();
+requestPage();
 
 function onWindowScrolled(){
   if(!isLoading && $(window).height()*3/2 + $(window).scrollTop() > $(document).height()){
-    requestNextPage();
+    requestPage();
   }
 }
 
-function requestNextPage(){
-	const url = `/page/${currentPage}`;
+function requestPage(){
+	const url = `/page/${skip}`;
 	isLoading = true;
 
 	$.ajax({
 		url : url,
 		type: 'get'
-	}).then((data) =>{
+	}).then((data) => {
+		skip += data.length;
 		let grid = document.getElementsByClassName('portfolios-grid')[0];
 		for(let i = 0, n = data.length;i < n; i++){
 

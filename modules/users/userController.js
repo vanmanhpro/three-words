@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const objectId = mongoose.Types.ObjectId();
 
 const userModel = require('./userSchema');
-//const userLogModel = require('./userLogSchema');
+const userLogModel = require('./userLogSchema');
 
 const checkExistAccount = (userInfo) => {
 	return new Promise( function( resolve, reject){
@@ -45,11 +45,27 @@ const updateAccount = (newUserData) => {
 	});
 }
 
-const getPage = ( pageNumber) => {
+const updateAccountImage = (accountId, imageURL) => {
+	return new Promise(function(resolve, reject){
+		userModel.findById(objectId(accountId))
+		.select('currentImageId')
+		.exec((err, data) => {
+			if(err) reject(err);
+			data.currentImageId = imageURL;
+			data.save( (err, updatedData) => {
+				if(err) reject(err);
+					else resolve();
+			})
+		})
+	});
+}
+
+const getPage = (skipNumber) => {
 	return new Promise(function(resolve, reject){
 		userModel.find()
 		.limit(10)
-		.skip(pageNumber * 10)
+		.skip(skipNumber)
+		.sort({created_at: 1})
 		.exec((err, users) => {
 			if(err) reject(err);
 				else resolve(users);

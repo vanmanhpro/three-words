@@ -3,17 +3,22 @@ const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const mongoose = require('mongoose');
+const morgan = require('morgan');
 
 const homeRouter = require('./modules/home');
 const userRouter = require('./modules/user');
 const imageRouter = require('./modules/image');
-//const logRouter = require('./modules/log');
+const logRouter = require('./modules/log');
+const wordRouter = require('./modules/word');
+const uploadRouter = require('./modules/upload');
 
 const config = require('./config.json');
 
 const app = express();
 
+app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended : true }));
+app.use(bodyParser.json());
 
 app.set('view engine', 'handlebars');
 
@@ -30,7 +35,9 @@ mongoose.connect(config.connectionString, (err) => {
 app.use('/', homeRouter);
 app.use('/user', userRouter);
 app.use('/image', imageRouter);
-//app.use('/log', logRouter);
+app.use('/log', logRouter);
+app.use('/word', wordRouter)
+app.use('/upload', uploadRouter)
 
 app.use(express.static(__dirname + '/public'));
 

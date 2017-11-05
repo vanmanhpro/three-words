@@ -5,7 +5,7 @@
      font-family: Arial;
 }
 body{
-	background-color: #fff4e5;
+	background-color: #F8E5FF;
 }
 .total-wrapper{
 	display: flex;
@@ -18,7 +18,7 @@ body{
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 6%;
+	height: 42px;
 	background-color: #fff;
 	border-bottom: 1px solid grey;
 	z-index: 1;
@@ -36,7 +36,7 @@ body{
 }
 .menu-list > li {
 	display: inline-flex;
-	line-height: 45px;
+	line-height: 40px;
 	list-style: none;
 	text-align: center;
 }
@@ -44,25 +44,23 @@ body{
 	display: block;
 	font-weight: bold;
 	color: grey;
-	padding: 3px 10px;
+	padding: 0px 10px;
+	height: 40px;
 	text-decoration: none;
 	transition: all 0.1s ease-in-out;
 }
 .menu-list > li > a.active{
-	color: #ffa31a;
- 
+	color: #D463E8;
+	border-bottom: 2px solid #D463E8 ; 
 }
 .menu-list > li > a:hover{
-	color: #ffa31a;
-	border-bottom: 2px solid #ffa31a ; 
+	color: #D463E8;
+	border-bottom: 2px solid #D463E8 ; 
 }
 .fa{
 	margin-right: 5px;
 }
 
-.brand-icon {
-	text-align: center;
-}
 
 .right-dock{
 	display: inline-flex;
@@ -73,7 +71,7 @@ body{
 	height: 30px;
 	font-weight: bold;
 	color: #fff;
-	background-color: #ffa31a;
+	background-color: #D463E8;
 	border-radius: 20px;
 	padding: 7px 20px;
 }
@@ -83,14 +81,16 @@ body{
 }
 #open-sign-in-button{
 	display: flex;
-    align-items: center;
-    background-color: #ffa31a;
-    color: #ffffff;
-    border-radius: 5px;
-    padding: 2px;
-    font-size: 1em;
-    font-weight: bold;
-    padding: 3px 10px;
+	align-items: center;
+	margin: 0px 0px 0px 10px;
+	background-color: #D463E8;
+	color: #ffffff;
+	border: 2px solid #D463E8;
+	border-radius: 5px;
+	padding: 2px;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 3px 10px;
 }
 #open-sign-in-button > span{
 	font-size: 20px;
@@ -98,28 +98,11 @@ body{
 #open-sign-in-button:hover{
 	cursor: pointer;
 	background-color: #ffffff;
-	color: #ffa31a;
-	box-shadow: 0px 2px 9px -2px rgba(0,0,0,0.75);
+	color: #D463E8;
 }
-#sign-out-button{
+#signed-in-wrapper{
 	display: none;
-    align-items: center;
-    background-color: #ffffff;
-    color: #d4d0d0e3;
-    border-radius: 5px;
-    padding: 2px;
-    font-size: 1em;
-    font-weight: bold;
-    padding: 3px 10px;
-}
-#sign-out-button > span{
-	font-size: 20px;
-}
-#sign-out-button:hover{
-	cursor: pointer;
-	background-color: #ffffff;
-	color: #ffa31a;
-	box-shadow: 0px 2px 9px -2px rgba(0,0,0,0.75);	
+	align-items: center;
 }
 .profile-setting-wrapper{
 	display: inline-flex;
@@ -181,53 +164,57 @@ body{
 }
 
 
+.search-notation{
+	display: none;
+	font-size: 20px;
+	cursor: pointer;
+}
+.search{
+	position: relative;
+	color: grey;
+}
+#search-input{
+	display: inline-flex;
+	padding: 8px 32px 8px 8px;
+	border-radius: 20px;
+	border: 1px solid #c5c5c5;
+}
+#search-input:focus{
+	outline: none;
+	box-shadow: 0px 0px 3px -0.5px rgba(255,0,238,1);
+}
+#search-button{
+	display: inline-flex;
+	position: absolute;
+	right: 0px;
+	top: 3px;
+	padding: 5px;
+}
+#search-button:hover{
+	display: inline-flex;
+	cursor: pointer;
+}
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 700px) {
 	.menu-option-text{
 		display: none;
 	}
 	.menu-option .fa{
-		font-size: 1.7em;
+		font-size: 28px;
 	}
-	.slogan {
-
+	.search{
+		display: none;
+		position: absolute;
+		top: 40px;
+		right: 130px;
 	}
-
-	.pull-height {
-		padding: 0 0 0.8em 0;
+	#search-input{
+		display: inline-flex;
+		padding: 8px 32px 8px 8px;
+		border-radius: 0px;
+		border: 3px solid #ffffff;
 	}
-
-	.slogan-content {
-		display: block;
-		padding: 0.8em 0 0.8em 0;
-		text-align: center;
-		color: #807a7ae3;
-		background-color: #b3b1b277;
+	.search-notation{
+		display: inline-block;
 	}
-}
-
-@media screen and (min-width: 769px){
-	.slogan {
-
-	}	
-	.pull-height {
-		padding: 0.7%;
-	}
-	
-	.slogan-content {
-		display: block;
-		padding: 0.8em 0 0.8em 0;
-		text-align: center;
-		color: #807a7ae3;
-		background-color: #b3b1b277;
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-	}
-}	
-
-.superfical-content {
-	display: inline;
-}
-
-.powerful-content {
-	display: inline;
 }
