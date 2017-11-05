@@ -40,7 +40,8 @@ Router.post('/', (req, res) => {
                 let newImageId = data;
                 userController.updateAccountImage( userId, newImageId, newImageURL)
                 .then((data) => {
-                    console.log("changed users image to :", data);
+                    console.log("profile picture changed");
+                    res.send();
                 })
                 .catch((err) => {
                     console.log(err);

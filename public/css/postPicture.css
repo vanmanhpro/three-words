@@ -18,15 +18,15 @@
 	flex-direction: column;
 }
 /*#choose-image{
-	border: 2px solid #D463E8;
+	border: 2px solid #ffa31a;
 	border-radius: 15px;
 	padding: 10px;
 	width: 200px;
 }*/
 .submit-area > div{
 	background: none;
-	background-color: #D463E8;
-	border: 2px solid #D463E8;
+	background-color: #ffa31a;
+	border: 2px solid #ffa31a;
 	border-radius: 10px;
 	color: #ffffff;
 	font-weight: bold;
@@ -35,7 +35,7 @@
 .submit-area > div:hover{
 	cursor: pointer;
 	background-color: #ffffff;
-	color: #D463E8;
+	color: #ffa31a;
 }
 .preview-image{
 	margin: 20px 0px;

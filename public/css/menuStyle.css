@@ -8,7 +8,7 @@ body{
 	background-color: #fff4e5;
 }
 .total-wrapper{
-	display: inline;
+	display: flex;
 	justify-content: center;
 }
 .header-wrapper{
@@ -18,13 +18,14 @@ body{
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 6%;
+	height: 42px;
 	background-color: #fff;
 	border-bottom: 1px solid grey;
 	z-index: 1;
 }
 .menu-wrapper{
 	display: flex;
+	align-items: center;
 	flex-basis: 1100px;
 	justify-content: space-between;
 }
@@ -36,21 +37,23 @@ body{
 }
 .menu-list > li {
 	display: inline-flex;
-	line-height: 45px;
+	line-height: 40px;
 	list-style: none;
 	text-align: center;
 }
 .menu-list > li > a {
-	display: block;
+	display: flex;
+	align-items: center;
 	font-weight: bold;
 	color: grey;
-	padding: 3px 10px;
+	padding: 0px 10px;
+	height: 40px;
 	text-decoration: none;
 	transition: all 0.1s ease-in-out;
 }
 .menu-list > li > a.active{
 	color: #ffa31a;
- 
+	border-bottom: 2px solid #ffa31a ; 
 }
 .menu-list > li > a:hover{
 	color: #ffa31a;
@@ -59,16 +62,21 @@ body{
 .fa{
 	margin-right: 5px;
 }
-
-.brand-icon {
-	text-align: center;
+.brand-icon{
+	position: relative;
+}
+.brand-icon img{
+	position: absolute;
+	width: 60px;
+	top: -21px;
+	transform: translate(-50%, 0);
 }
 
 .right-dock{
 	display: inline-flex;
 	align-items: center;
 }
-/* #post-button{
+#post-button{
 	display: inline-flex;
 	height: 30px;
 	font-weight: bold;
@@ -80,49 +88,41 @@ body{
 #post-button:hover{
 	cursor: pointer;	
 	opacity: 0.75;
-} */
+}
 #open-sign-in-button{
 	display: flex;
-    align-items: center;
-    background-color: #ffa31a;
-    color: #ffffff;
-    border-radius: 5px;
-    padding: 2px;
-    font-size: 1em;
-    font-weight: bold;
-    padding: 3px 10px;
+	align-items: center;
+	margin: 0px 0px 0px 10px;
+	background-color: #ffa31a;
+	color: #ffffff;
+	border: 2px solid #ffa31a;
+	border-radius: 5px;
+	padding: 2px;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 3px 10px;
 }
 #open-sign-in-button > span{
 	font-size: 20px;
 }
 #open-sign-in-button:hover{
+	border-color: #ffffff;
 	cursor: pointer;
 	background-color: #ffffff;
 	color: #ffa31a;
 	box-shadow: 0px 2px 9px -2px rgba(0,0,0,0.75);
 }
-#sign-out-button{
+.menu-option-text{
+	font-weight: bold !important;
+	font-size: 1em !important;
+}
+
+#signed-in-wrapper{
 	display: none;
-    align-items: center;
-    background-color: #ffffff;
-    color: #d4d0d0e3;
-    border-radius: 5px;
-    padding: 2px;
-    font-size: 1em;
-    font-weight: bold;
-    padding: 3px 10px;
-}
-#sign-out-button > span{
-	font-size: 20px;
-}
-#sign-out-button:hover{
-	cursor: pointer;
-	background-color: #ffffff;
-	color: #ffa31a;
-	box-shadow: 0px 2px 9px -2px rgba(0,0,0,0.75);	
+	align-items: center;
 }
 .profile-setting-wrapper{
-	display: none;
+	display: inline-flex;
 	position: relative;
 	border-radius: 20px;
 	width: 35px;
@@ -141,12 +141,21 @@ body{
 	width: inherit;
 	height: inherit;
 }
-
+.profile-setting-dock{
+	display: none;
+	flex-direction: column;
+	position: absolute;
+	top: 41px;
+	left: -145px;
+	width: 180px;
+	background-color: #ffffff;
+	box-shadow: 0px 2px 9px -2px rgba(0,0,0,0.75);
+}
 .profile-setting-section{
 	display: flex;
 	flex-direction: column;
 	border-bottom: 1px solid grey;
-	padding: 10px 0px 10px 0px;
+	padding: 10px 0px 10px 0px;0
 }
 .profile-setting-section:last-child{
 	border: none;
@@ -172,75 +181,26 @@ body{
 }
 
 
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 700px) {
 	.menu-option-text{
 		display: none;
 	}
 	.menu-option .fa{
-		font-size: 1.7em;
+		font-size: 28px;
 	}
-	.slogan {
-
-	}
-
-	.pull-height {
-		padding: 0 0 0.8em 0;
-	}
-
-	.slogan-content {
-		display: block;
-		padding: 0.8em 0 0.8em 0;
-		text-align: center;
-		color: #807a7ae3;
-		background-color: #b3b1b277;
-	}
-	.profile-setting-dock{
+	.search{
 		display: none;
-		flex-direction: column;
 		position: absolute;
-		top: 110%;
-		left: -145px;
-		width: 180px;
-		background-color: #ffffff;
-		box-shadow: 0px 2px 9px -2px rgba(0,0,0,0.75);
-		border-radius: 5% 0 5% 5%;
+		top: 40px;
+		right: 130px;
 	}
-}
-
-@media screen and (min-width: 769px){
-	.slogan {
-
-	}	
-	.pull-height {
-		padding: 0.65%;
+	#search-input{
+		display: inline-flex;
+		padding: 8px 32px 8px 8px;
+		border-radius: 0px;
+		border: 3px solid #ffffff;
 	}
-	
-	.slogan-content {
-		display: block;
-		padding: 0.8em 0 0.8em 0;
-		text-align: center;
-		color: rgba(127, 122, 122, 0.77);
-		background-color: rgba(179, 178, 179, 0.67);
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+	.search-notation{
+		display: inline-block;
 	}
-	.profile-setting-dock{
-		display: none;
-		flex-direction: column;
-		position: absolute;
-		top: 110%;
-		left: -145px;
-		width: 180px;
-		background-color: #ffffff;
-		box-shadow: 0px 2px 9px -2px rgba(0,0,0,0.75);
-		border-radius: 5% 0 5% 5%;		
-	}
-}	
-
-.superfical-content {
-	display: inline;
-}
-
-.powerful-content {
-	display: inline;
 }

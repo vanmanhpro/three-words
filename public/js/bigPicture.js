@@ -102,6 +102,7 @@ let topCommentContainer = document.getElementById('top-comment-container');
 // Open and append picture in big size
 function openPictureByClick(portfolio, chosenUser){
 	portfolio.addEventListener('click', function(){
+		document.getElementById('profile-setting-dock').style.display = "none";
 		openPictureDim.style.display = "block";
 		document.getElementsByTagName('body')[0].style.overflow = "hidden";// prevent body scrolling when pop up
 		input3words.focus();
@@ -109,9 +110,9 @@ function openPictureByClick(portfolio, chosenUser){
 		//append owner's information
 		pictureOwnersName.innerHTML = chosenUser.name;
 		
-		// if (currentUser){
-		// 	currentUserAvatar.src = currentUser.smallURL;
-		// }
+		if (currentUser){
+			currentUserAvatar.src = currentUser.smallURL;
+		}
 
 		//append picture and comments
 		url = `/image/${chosenUser.currentImageId}`;
@@ -150,7 +151,6 @@ function openPictureByClick(portfolio, chosenUser){
 				$.ajax({type:'get', url: url})
 				.done((data) => {
 					currentLog = data;
-					console.log(currentLog);
 					appendCommentsToBigPicture();
 				})
 			} else {

@@ -1,9 +1,18 @@
 .content-wrapper{
 	display: flex;
+	flex-direction: column;
 	flex-basis: 1100px;
+	align-items: center;
 	justify-content: space-between;
 	position: relative;
 	top: 40px;
+}
+
+.slogan-wrapper{
+
+}
+.slogan{
+	
 }
 
 .portfolios-wrapper{

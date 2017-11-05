@@ -47,11 +47,9 @@ const updateAccount = (newUserData) => {
 
 const updateAccountImage = (accountId, imageId, imageURL) => {
 	return new Promise(function(resolve, reject){
-		console.log(accountId);
 		userModel.findOne( { id: accountId})
 		.select('currentImageId smallURL')
 		.exec((err, data) => {
-			console.log(data);
 			if(err) reject(err);
 			data.currentImageId = imageId;
 			data.smallURL = imageURL;

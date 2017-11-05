@@ -18,7 +18,7 @@ Router.post('/createAccount', (req, res) => {
 			} else {
 				let newImage = {
 					ownerId: userInfo.id,
-					url: `https://graph.facebook.com/${userInfo.id}/picture?width=300`
+					url: `https://graph.facebook.com/${userInfo.id}/picture?width=500`
 				};
 				imageController.addImage(newImage)
 				.then( (imageId) => {
@@ -45,7 +45,6 @@ Router.post('/createAccount', (req, res) => {
 Router.post('/image', (req, res) => {
 	userController.updateAccountImage(req.body.accountId, req.body.imageURL)
 	.then((data) => {
-		console.log(data);
 		res.send(req);
 	})
 	.catch((err) => {
