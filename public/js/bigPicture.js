@@ -6,7 +6,7 @@ document.addEventListener('keydown', function(event){
 	// Press enter key while input is being focused to comment
 	if ((event.keyCode === 13 || event.which === 13) && input3words === document.activeElement){
 		if (!currentUser){
-			//popup
+			alert("Please sign-in first! :D")
 		}
 		// allow only 3 words
 		if (currentLog && currentLog.threewords.length >= 3){
@@ -151,6 +151,10 @@ function openPictureByClick(portfolio, chosenUser){
 				$.ajax({type:'get', url: url})
 				.done((data) => {
 					currentLog = data;
+<<<<<<< HEAD
+=======
+					// console.log(currentLog);
+>>>>>>> abd1999d588116e21879ca5be9a49c0683b459da
 					appendCommentsToBigPicture();
 				})
 			} else {
