@@ -2,7 +2,8 @@
 	display: none;
 	position: fixed;
 	top: 45%;
-	transform: translate( 0, -50%);
+	left: 50%;
+	transform: translate( -50%, -50%);
 	width: 300px;
 	height: 400px;
 	background-color: rgba( 255, 255, 255, 1);
@@ -85,7 +86,7 @@ div.strikeThrough{
 	border-radius: 100%;
 }
 
-#headbar-name-user {
+#username {
 	padding: 0 5px 0 5px;
 	font-weight: bold;
 	color: #ffa31a; 

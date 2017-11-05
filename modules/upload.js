@@ -2,7 +2,8 @@ const express = require('express');
 const path = require('path');
 const multer = require('multer');
 
-const userController = require('./users/userController.js')
+const userController = require('./users/userController.js');
+const imageController = require('./images/imageController.js');
 
 const Router = express.Router();
 
@@ -15,8 +16,10 @@ const storage = multer.diskStorage({
 })
 
 // Init Upload
+const photoMaxSize = 100000;
 const upload = multer({
-	storage: storage
+	storage: storage,
+    limits: {fileSize: photoMaxSize}
 }).single('photo');
 
 Router.post('/', (req, res) => {
@@ -24,7 +27,28 @@ Router.post('/', (req, res) => {
     	if(err){
     		res.send(err);
     	} else {
-    		res.send(req.file.path);
+            //create image
+            let newImageURL = `uploads/${req.file.filename}`;
+            let userId = req.body.userId;
+            let newImageData = {
+                ownerId: req.body.userId,
+                url: newImageURL
+            }
+            imageController.addImage(newImageData)
+            .then((data) => {
+                //change current image id of user
+                let newImageId = data;
+                userController.updateAccountImage( userId, newImageId, newImageURL)
+                .then((data) => {
+                    console.log("changed users image to :", data);
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     	}
     })
 });

@@ -1,9 +1,9 @@
 const path = require('path');
 const mongoose = require('mongoose');
-const objectId = mongoose.Types.ObjectId();
+const objectId = mongoose.Types.ObjectId;
 
 const userModel = require('./userSchema');
-//const userLogModel = require('./userLogSchema');
+const userLogModel = require('./userLogSchema');
 
 const checkExistAccount = (userInfo) => {
 	return new Promise( function( resolve, reject){
@@ -45,11 +45,31 @@ const updateAccount = (newUserData) => {
 	});
 }
 
-const getPage = ( pageNumber) => {
+const updateAccountImage = (accountId, imageId, imageURL) => {
+	return new Promise(function(resolve, reject){
+		console.log(accountId);
+		userModel.findOne( { id: accountId})
+		.select('currentImageId smallURL')
+		.exec((err, data) => {
+			console.log(data);
+			if(err) reject(err);
+			data.currentImageId = imageId;
+			data.smallURL = imageURL;
+			data.save( (err, updatedData) => {
+				if(err) reject(err);
+					else resolve(updatedData);
+			})
+		})
+	});
+}
+
+const getPage = (skipNumber) => {
 	return new Promise(function(resolve, reject){
 		userModel.find()
 		.limit(10)
-		.skip(pageNumber * 10)
+		.skip(skipNumber)
+		.sort({created_at: 1})
+		.lean()
 		.exec((err, users) => {
 			if(err) reject(err);
 				else resolve(users);
@@ -71,5 +91,6 @@ module.exports = {
 	getAll,
 	getPage,
 	checkExistAccount,
-	updateAccount
+	updateAccount,
+	updateAccountImage
 }

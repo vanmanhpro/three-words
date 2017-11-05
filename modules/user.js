@@ -40,16 +40,17 @@ Router.post('/createAccount', (req, res) => {
 	 		console.log(err)
 	 	});
 	}
-})
+});
 
-Router.post('/getPortfolios', (req, res) => {
-	userController.getOnePage()
+Router.post('/image', (req, res) => {
+	userController.updateAccountImage(req.body.accountId, req.body.imageURL)
 	.then((data) => {
-		res.send(data);
+		console.log(data);
+		res.send(req);
 	})
-	.catch((err) => console.log(err));
-
-})
-
+	.catch((err) => {
+		console.log(err);
+	})
+});
 
 module.exports = Router;

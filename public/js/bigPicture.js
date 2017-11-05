@@ -150,6 +150,7 @@ function openPictureByClick(portfolio, chosenUser){
 				$.ajax({type:'get', url: url})
 				.done((data) => {
 					currentLog = data;
+					console.log(currentLog);
 					appendCommentsToBigPicture();
 				})
 			} else {
