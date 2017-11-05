@@ -69,7 +69,7 @@ body{
 	position: absolute;
 	width: 60px;
 	top: -21px;
-	transform: translate(-50%, 0);
+	/* transform: translate(-50%, 0); */
 }
 
 .right-dock{
@@ -155,7 +155,7 @@ body{
 	display: flex;
 	flex-direction: column;
 	border-bottom: 1px solid grey;
-	padding: 10px 0px 10px 0px;0
+	padding: 10px 0px 10px 0px;
 }
 .profile-setting-section:last-child{
 	border: none;
@@ -177,7 +177,7 @@ body{
 }
 .profile-setting-option:hover{
 	color: #ffffff;
-	background-color: #fc20f8;
+	background-color: #ffa31a;
 }
 
 
@@ -187,7 +187,6 @@ body{
 	}
 	.menu-option .fa{
 		font-size: 28px;
-<<<<<<< HEAD
 		font-size: 1.7em;
 	}
 	.slogan {
@@ -204,8 +203,7 @@ body{
 		text-align: center;
 		color: rgba(127, 122, 122, 0.77);
 		background-color: rgba(179, 178, 179, 0.67);
-=======
->>>>>>> hi
+
 	}
 	.search{
 		display: none;

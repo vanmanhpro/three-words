@@ -1,6 +1,4 @@
 function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
     // The response object is returned with a status field that lets the
     // app know the current login status of the person.
     // Full docs on the response object can be found in the documentation
@@ -23,7 +21,7 @@ function statusChangeCallback(response) {
 
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : '132560957403316',
+    appId      : '709969695863741',
     cookie     : true,  // enable cookies to allow the server to access 
                         // the session
     xfbml      : true,  // parse social plugins on this page
@@ -80,5 +78,6 @@ function logoutFB() {
     document.getElementById('signed-in-wrapper').style.display = "none";
     document.getElementById('profile-setting-avatar').src = "";
     currentUser = null;
+    currentLog = null;
   });
 }

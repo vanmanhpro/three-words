@@ -26,6 +26,10 @@ function processClick(listeningWord, word){
 
 function voteWordByClick(listeningWord, word){
 	listeningWord.addEventListener('click', function(){
+		if(!currentUser){
+			alert("Plss login first! :D");
+			return;
+		}
 		if(currentLog){
 			processClick(listeningWord, word);
 		} else {

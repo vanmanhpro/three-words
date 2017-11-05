@@ -155,12 +155,9 @@
 	font-size: 1em;	
 	padding: 5px 20px;
 	color: rgba(0, 0, 0, 0.5);
-<<<<<<< HEAD
 	overflow-y: scroll;
     color: rgba(0, 0, 0, 0.5);
     font-size: 1em;
-=======
->>>>>>> hi
 }
 .comment{
 	display: flex;
@@ -197,7 +194,6 @@
 	justify-content: space-between;
 	padding: 5px 0px 10px 10px;
 }
-<<<<<<< HEAD
 
 @media screen and (max-width : 400px) and (min-width: 0px) {
 	.opened-picture-wrapper{
@@ -206,8 +202,7 @@
 		left: 10%;
 		height: 80%;
 	}
-=======
->>>>>>> hi
+
 
 @media screen and (max-width: 930px){
 	.instant-picture-wrapper{

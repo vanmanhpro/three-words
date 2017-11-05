@@ -35,8 +35,6 @@
 									<div class="profile-setting-username"><span id="username">vanmanh</span></div>
 								</div>
 								<div class="profile-setting-section">
-									<!-- <div class="profile-setting-option"><span class="fa fa-user-o"></span>Profile</div> -->
-									<!-- <div class="profile-setting-option"><span class="fa fa-cog"></span>Setting</div> -->
 									<div class="profile-setting-option" onclick="logoutFB()"><span class="fa fa-sign-out"></span>Log out</div>
 								</div>
 							</div>
@@ -73,13 +71,10 @@
 		<div class="screen-dim" id="open-post-picture-dim">
 			<form class="post-picture-form">
 			  	<div class="input-image-wrapper">
-			    	<!-- <label id="choose-image" for="input-image">For input-image</label> -->
-			    	<!-- <input type="text" name="caption"> -->
 			    	<input id="input-image" type="file" accept=".jpg, .jpeg, .png">
 			  	</div>
 			  	<div class="preview-image" id="preview-image">
 			    	<p>No files currently selected for upload</p>
-			    	<!-- <img src="picture.jpg"> -->
 			  	</div>
 			  	<div class="submit-area">
 			    	<div onclick="submitPicture()"><span class="fa fa-send">&nbsp</span>Submit</div>
@@ -87,6 +82,7 @@
 			</form>
 		</div>
 	</div>
+	<div class="loader">Loading...</div>
 	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
