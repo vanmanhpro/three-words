@@ -5,62 +5,68 @@ let currentPicture, currentLog, logInfo
 document.addEventListener('keydown', function(event){
 	// Press enter key while input is being focused to comment
 	if ((event.keyCode === 13 || event.which === 13) && input3words === document.activeElement){
-		if (!currentUser){
-			alert("Please sign-in first! :D")
-		}
-		// allow only 3 words
-		if (currentLog && currentLog.threewords.length >= 3){
-			input3words.value = "";
-			alert('Exceeded 3-words')
-			return false;
-		}
-		// comment prototype
-		url = `/image/comment`;
-		let word = {
-			content: input3words.value,
-			targetOwner: currentPicture.ownerId,
-			targetPicture: currentPicture._id,
-			authorId: currentUser.id
-		}
-
-		// post comment
-		$.ajax({type: 'post', url: url, data: word})
-		.done((addedWord) => {
-
-			appendToImage(addedWord);
-
-			// append to log
-			if(currentLog){
-				pushWordToLog(addedWord);
-			} else {
-				createLog(logInfo)
-				.then((data) => {
-					currentLog = data;
-					pushWordToLog(addedWord);
-				});
-				
-			}
-		})
-
-		function pushWordToLog(addedWord){
-			if(currentLog.threewords.length < 3){
-				currentLog.threewords.push(addedWord._id);
-				updateLog(currentLog)
-				.then((data) => {	
-					currentLog = data;
-					// append new comment container
-					let newComment = makeNewComment(addedWord);
-					activate(newComment);
-					commentsContainer.appendChild(newComment);
-					voteWordByClick(newComment, addedWord);
-				});
-			}
-		}
-		
-		// reset input
-		input3words.value = "";
+		enterComment();
 	}
 });
+
+function enterComment(){
+	if (!currentUser){
+		//popup
+		alert("Please log in first! :D");
+		return;
+	}
+	// allow only 3 words
+	if (currentLog && currentLog.threewords.length >= 3){
+		input3words.value = "";
+		alert('Exceeded 3-words')
+		return false;
+	}
+	// comment prototype
+	url = `/image/comment`;
+	let word = {
+		content: input3words.value,
+		targetOwner: currentPicture.ownerId,
+		targetPicture: currentPicture._id,
+		authorId: currentUser.id
+	}
+
+	// post comment
+	$.ajax({type: 'post', url: url, data: word})
+	.done((addedWord) => {
+
+		appendToImage(addedWord);
+
+		// append to log
+		if(currentLog){
+			pushWordToLog(addedWord);
+		} else {
+			createLog(logInfo)
+			.then((data) => {
+				currentLog = data;
+				pushWordToLog(addedWord);
+			});
+			
+		}
+	})
+
+	function pushWordToLog(addedWord){
+		if(currentLog.threewords.length < 3){
+			currentLog.threewords.push(addedWord._id);
+			updateLog(currentLog)
+			.then((data) => {	
+				currentLog = data;
+				// append new comment container
+				let newComment = makeNewComment(addedWord);
+				activate(newComment);
+				commentsContainer.appendChild(newComment);
+				voteWordByClick(newComment, addedWord);
+			});
+		}
+	}
+	
+	// reset input
+	input3words.value = "";
+}
 
 function createLog(logInfo){
 	return new Promise(function(resolve, reject){
@@ -96,7 +102,6 @@ function updateLog(updatedLog){
 let openPictureDim = document.getElementById('open-picture-dim');
 let commentsContainer = document.getElementById('comments-container');
 let pictureOwnersName = document.getElementById('owners-name');
-let currentUserAvatar = document.getElementById('user-avatar-tiny');
 let topCommentContainer = document.getElementById('top-comment-container');
 
 // Open and append picture in big size
@@ -109,10 +114,6 @@ function openPictureByClick(portfolio, chosenUser){
 
 		//append owner's information
 		pictureOwnersName.innerHTML = chosenUser.name;
-		
-		if (currentUser){
-			currentUserAvatar.src = currentUser.smallURL;
-		}
 
 		//append picture and comments
 		url = `/image/${chosenUser.currentImageId}`;
@@ -151,10 +152,6 @@ function openPictureByClick(portfolio, chosenUser){
 				$.ajax({type:'get', url: url})
 				.done((data) => {
 					currentLog = data;
-<<<<<<< HEAD
-=======
-					// console.log(currentLog);
->>>>>>> abd1999d588116e21879ca5be9a49c0683b459da
 					appendCommentsToBigPicture();
 				})
 			} else {

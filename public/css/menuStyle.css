@@ -187,6 +187,7 @@ body{
 	}
 	.menu-option .fa{
 		font-size: 28px;
+<<<<<<< HEAD
 		font-size: 1.7em;
 	}
 	.slogan {
@@ -203,6 +204,8 @@ body{
 		text-align: center;
 		color: rgba(127, 122, 122, 0.77);
 		background-color: rgba(179, 178, 179, 0.67);
+=======
+>>>>>>> hi
 	}
 	.search{
 		display: none;
