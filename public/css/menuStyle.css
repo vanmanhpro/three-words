@@ -18,7 +18,7 @@ body{
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 42px;
+	height: 6%;
 	background-color: #fff;
 	border-bottom: 1px solid grey;
 	z-index: 1;
@@ -44,14 +44,13 @@ body{
 	display: block;
 	font-weight: bold;
 	color: grey;
-	padding: 0px 10px;
-	height: 80%;
+	padding: 3px 10px;
 	text-decoration: none;
 	transition: all 0.1s ease-in-out;
 }
 .menu-list > li > a.active{
 	color: #ffa31a;
-	border-bottom: 2px solid #ffa31a ; 
+ 
 }
 .menu-list > li > a:hover{
 	color: #ffa31a;
@@ -183,11 +182,52 @@ body{
 
 
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
 	.menu-option-text{
 		display: none;
 	}
 	.menu-option .fa{
 		font-size: 1.7em;
 	}
+	.slogan {
+
+	}
+
+	.pull-height {
+		padding: 0 0 0.8em 0;
+	}
+
+	.slogan-content {
+		display: block;
+		padding: 0.8em 0 0.8em 0;
+		text-align: center;
+		color: #807a7ae3;
+		background-color: #b3b1b277;
+	}
+}
+
+@media screen and (min-width: 769px){
+	.slogan {
+
+	}	
+	.pull-height {
+		padding: 0.7%;
+	}
+	
+	.slogan-content {
+		display: block;
+		padding: 0.8em 0 0.8em 0;
+		text-align: center;
+		color: #807a7ae3;
+		background-color: #b3b1b277;
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+	}
+}	
+
+.superfical-content {
+	display: inline;
+}
+
+.powerful-content {
+	display: inline;
 }
