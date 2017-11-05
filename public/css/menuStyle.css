@@ -138,7 +138,7 @@ body{
 	display: flex;
 	flex-direction: column;
 	border-bottom: 1px solid grey;
-	padding: 10px 0px 10px 0px;0
+	padding: 10px 0px 10px 0px;
 }
 .profile-setting-section:last-child{
 	border: none;
