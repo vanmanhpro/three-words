@@ -11,38 +11,21 @@ Router.post('/comment', (req, res) => {
 	let word = req.body;
 	
 	wordController.addWord(word)
-	.then((addedWord) => {
+	.then((addedWordId) => {
 		console.log("comment added");
-		res.send(addedWord);
+		res.send(addedWordId);
+		imageController.appendWord(addedWordId, word.targetPicture)
+		.then(() => {
+			console.log("appended to picture");
+		})
+		.catch((err) => {
+			console.log(err);
+		})
 	})
 	.catch((err) => {
 		console.log(err);
 	})
 });
-
-Router.post('/append', (req, res) => {
-	let addedWord = req.body;
-
-	imageController.appendWord(addedWord._id, addedWord.targetPicture)
-	.then((data) => {
-		res.send(data);
-		console.log("appended to picture");
-	})
-	.catch((err) => {
-		console.log(err);
-	})
-	
-});
-
-Router.post('/update', (req, res) => {
-	let updatedImage = req.body;
-	imageController.updateImage(updatedImage)
-	.then((data) => {
-		res.send(data);
-	})
-	.catch((err) => console.log(err));
-
-})
 
 Router.get('/:id', (req, res) => {
 	let imageId = req.params.id;

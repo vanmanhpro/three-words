@@ -109,9 +109,9 @@ function openPictureByClick(portfolio, chosenUser){
 		//append owner's information
 		pictureOwnersName.innerHTML = chosenUser.name;
 		
-		if (currentUser){
-			currentUserAvatar.src = currentUser.smallURL;
-		}
+		// if (currentUser){
+		// 	currentUserAvatar.src = currentUser.smallURL;
+		// }
 
 		//append picture and comments
 		url = `/image/${chosenUser.currentImageId}`;

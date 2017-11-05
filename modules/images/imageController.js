@@ -21,10 +21,7 @@ const addImage = (newImageData) => {
 const getById = (imageId) => {
 	return new Promise(function(resolve, reject){
 		imageModel.findOne({"_id": objectId(imageId)})
-		.populate({
-			path: 'words',
-			options: { sort: {vote: -1}}
-		})
+		.populate("words")
 		.exec((err, data) => {
 			if(err) reject(err);
 				else resolve(data);
@@ -44,45 +41,11 @@ const getAll = () => {
 
 const appendWord = (addedWordId, imageId) => {
 	return new Promise(function(resolve, reject){
-		imageModel.findOne({ _id:objectId(imageId)})
-		.exec((err, data) => {
-			let exist = false;
-			for(let i = 0, n = data.words.length; i < n; i++){
-				if(data.words[i] == addedWordId){
-					exist = true;
-					break;
-				}
-			}
-
-			if (exist){
-				console.log("Exist!")
-				resolve(data);
-			} else {
-				data.words.push(objectId(addedWordId));
-
-				data.save((err, updatedData) => {
-					if (err) reject(err);
-						else {
-							console.log("Written!")
-							resolve(updatedData);
-						}
-				})
-			}
-		})
-	})
-}
-
-const updateImage = (updatedImage) => {
-	return new Promise(function(resolve, reject){
-		imageModel.findOne( { "_id": updatedImage._id })
-		.exec((err, data) => {
-			data.voters = updatedImage.voters;
-			data.words = (updatedImage.words) ? updatedImage.words : [];
-
-			data.save((err, updatedData) =>{
-				if (err) reject(err);
-					else resolve(updatedData);
-			})
+		imageModel.update(
+		{ "_id": objectId(imageId) },
+		{ $push: {words: objectId(addedWordId)} }, (err) => {
+			if(err) reject(err);
+				else resolve();
 		})
 	})
 }
@@ -91,6 +54,5 @@ module.exports = {
 	addImage,
 	getAll,
 	getById,
-	appendWord,
-	updateImage
+	appendWord
 }

@@ -11,18 +11,10 @@ Router.get('/', (req, res) => {
 
 Router.get('/page/:id', (req, res) => {
 	let pageNumber = req.params.id;
-	userController.getPage(pageNumber * 10)
+	userController.getPage( pageNumber)
 	.then((data) => {
 		res.send(data);
 	})
 });
-
-Router.get('/skip/:id', (req, res) => {
-	let skip = req.params.id;
-	userController.getPage(skip)
-	.then((data) => {
-		res.send(data);
-	})
-})
 
 module.exports = Router;

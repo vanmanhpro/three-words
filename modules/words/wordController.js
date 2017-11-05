@@ -2,11 +2,11 @@ const path = require('path');
 const mongoose = require('mongoose');
 const objectId = mongoose.Types.ObjectId();
 
-const wordModel = require('./wordSchema');
+const wordsModel = require('./wordSchema');
 
 const addWord = (word) => {
 	return new Promise(function(resolve, reject){
-		var newWord = new wordModel({
+		var newWord = new wordsModel({
 			content : word.content,
 			targetOwner : word.targetOwner,
 			targetPicture : word.targetPicture,
@@ -15,31 +15,25 @@ const addWord = (word) => {
 
 		newWord.save( (err, data) => {
 			if(err) reject(err);
-				else resolve(data);
+				else resolve(data._id);
 		});
 	});
 }
 
-const updateWord = (updatedWord) => {
+const upvoteWord = (word, voterId) => {
 	return new Promise(function(resolve, reject){
-		wordModel.findOne( { "_id": updatedWord._id })
-		.exec((err, data) => {
-			data.vote = updatedWord.vote;
-			data.voters = updatedWord.voters;
-			if(updatedWord.voters === undefined){
-				data.vote = 0;
-				data.voters = [];
-			};
-
-			data.save((err, updatedData) =>{
+		wordsModel.findById(word._id)
+		.exec((updateWord) => {
+			updateWord.vote++;
+			updateWord.voter.push(voterId);
+			updateWord.save((err, updatedWord) => {
 				if (err) reject(err);
-					else resolve(updatedData);
+					else resolve(updatedWord);
 			})
-		})
+		});
 	})
 }
 
 module.exports = {
-	addWord,
-	updateWord
+	addWord
 }
