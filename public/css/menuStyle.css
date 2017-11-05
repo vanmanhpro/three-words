@@ -192,8 +192,8 @@ body{
 		display: block;
 		padding: 0.8em 0 0.8em 0;
 		text-align: center;
-		color: #807a7ae3;
-		background-color: #b3b1b277;
+		color: rgba(127, 122, 122, 0.77);
+		background-color: rgba(179, 178, 179, 0.67);
 	}
 	.profile-setting-dock{
 		display: none;
